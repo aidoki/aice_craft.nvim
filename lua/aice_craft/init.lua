@@ -3,12 +3,15 @@ local M = {}
 
 M.config = {
     api_key = os.getenv("DEEPSEEK_API_KEY"),
-    model = "deepseek-chat",
-    prompts = require("aice_craft.prompts")
+    model = "deepseek-chat"
 }
 
 function M.setup(opts)
     M.config = vim.tbl_deep_extend("force", M.config, opts or {})
+
+    if not M.config.prompts then
+        M.config.prompts = require('aice_craft.prompts')
+    end
 
     -- 创建用户命令
     vim.api.nvim_create_user_command("AIPrompt", function(opts_)
