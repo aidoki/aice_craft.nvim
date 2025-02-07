@@ -1,12 +1,12 @@
 -- plugin/your-plugin-name.lua
-if vim.g.loaded_ai_helper then
+if vim.g.loaded_aice_craft then
     return
 end
-vim.g.loaded_ai_helper = true
+vim.g.loaded_aice_craft = true
 
 -- 创建用户命令
 vim.api.nvim_create_user_command('AIPrompt', function()
-    require('ai-helper.ui').show_prompt_menu()
+    require('aice_craft.ui').show_prompt_menu()
 end, {})
 
 -- 创建快捷键映射
